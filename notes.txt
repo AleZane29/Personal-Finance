@@ -1,1 +1,1 @@
-Start angular project app: ng new name-app --style=scss --routing --skipTests
+Start angular project app: ng new personal-finance-app --style=scss --routing --skip-tests
