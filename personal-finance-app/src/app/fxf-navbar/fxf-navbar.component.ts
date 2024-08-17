@@ -18,7 +18,6 @@ export class FxfNavbarComponent {
   }
 
   toggleTheme() {
-    console.log(this.theme);
     this.theme = this.theme == 'dark' ? 'light' : 'dark';
     document
       .getElementById('data-theme')

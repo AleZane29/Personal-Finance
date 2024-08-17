@@ -1,7 +1,6 @@
 <div class="drawer">
   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
   <div class="drawer-content">
-    <!-- Page content here -->
     <label for="my-drawer" class="btn btn-primary drawer-button">
       <mat-icon mat-icon-button>menu</mat-icon>
     </label>
@@ -13,16 +12,35 @@
       class="drawer-overlay"
     ></label>
     <ul class="menu bg-base-200 text-xl font-medium min-h-full w-3/12 p-4">
-      <li><a>Dashboard</a></li>
-      <li><a>Transactions</a></li>
+      <li class="pt-4 pb-4 text-2xl">
+        <a><img src="fxf-logo-sq.png" class="h-9" /> FleXFin</a>
+      </li>
+      <li class="pt-2 pb-2">
+        <a><mat-icon mat-icon-button>bar_chart_4_bars</mat-icon>Dashboard</a>
+      </li>
       <details class="collapse collapse-arrow">
-        <summary class="collapse-title">Investments</summary>
+        <summary class="collapse-title">Transactions</summary>
         <div class="collapse-content">
-          <li><a>Transactions</a></li>
-          <li><a>Edit Categories & Milestones</a></li>
+          <li class="pt-1 pb-1">
+            <a
+              ><mat-icon mat-icon-button>compare_arrows</mat-icon
+              >Transactions</a
+            >
+          </li>
+          <li class="pt-1 pb-1">
+            <a
+              ><mat-icon mat-icon-button>category</mat-icon>Edit Categories &
+              Milestones</a
+            >
+          </li>
         </div>
       </details>
-      <li><a>Reports</a></li>
+      <li class="pt-2 pb-2">
+        <a><mat-icon mat-icon-button>trending_up</mat-icon>Investments</a>
+      </li>
+      <li class="pt-2 pb-2">
+        <a><mat-icon mat-icon-button>donut_large</mat-icon>Reports</a>
+      </li>
     </ul>
     <label
       (change)="toggleTheme()"
