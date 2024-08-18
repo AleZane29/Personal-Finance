@@ -1,34 +1,68 @@
 <div class="drawer">
+  <!-- Contenuto sidebar chiusa -->
   <input id="my-drawer" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content">
-    <label for="my-drawer" class="btn btn-primary drawer-button">
-      <mat-icon mat-icon-button>menu</mat-icon>
-    </label>
+  <div class="drawer-content h-full">
+    <ul class="menu menu-close bg-base-200 h-full p-4">
+      <li class="pt-2 pb-2">
+        <label for="my-drawer" class="btn btn-primary drawer-button">
+          <mat-icon mat-icon-button>menu</mat-icon>
+        </label>
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="dashboard" class="cont-logo"
+          ><img src="fxf-logo-sq.png" class="mini-logo"
+        /></a>
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="dashboard"
+          ><mat-icon mat-icon-button>bar_chart_4_bars</mat-icon></a
+        >
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="transactions"
+          ><mat-icon mat-icon-button>compare_arrows</mat-icon></a
+        >
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="categories"><mat-icon mat-icon-button>category</mat-icon></a>
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="investments"
+          ><mat-icon mat-icon-button>trending_up</mat-icon></a
+        >
+      </li>
+      <li class="pt-2 pb-2">
+        <a href="reports"><mat-icon mat-icon-button>donut_large</mat-icon></a>
+      </li>
+    </ul>
   </div>
+  <!-- Contenuto sidebar aperta -->
   <div class="drawer-side">
     <label
       for="my-drawer"
       aria-label="close sidebar"
       class="drawer-overlay"
     ></label>
-    <ul class="menu bg-base-200 text-xl font-medium min-h-full w-3/12 p-4">
+    <ul class="menu menu-open bg-base-200 text-xl font-medium min-h-full p-4">
       <li class="pt-4 pb-4 text-2xl">
         <a><img src="fxf-logo-sq.png" class="h-9" /> FleXFin</a>
       </li>
       <li class="pt-2 pb-2">
-        <a><mat-icon mat-icon-button>bar_chart_4_bars</mat-icon>Dashboard</a>
+        <a href="dashboard"
+          ><mat-icon mat-icon-button>bar_chart_4_bars</mat-icon>Dashboard</a
+        >
       </li>
       <details class="collapse collapse-arrow">
         <summary class="collapse-title">Transactions</summary>
         <div class="collapse-content">
           <li class="pt-1 pb-1">
-            <a
+            <a href="transactions"
               ><mat-icon mat-icon-button>compare_arrows</mat-icon
               >Transactions</a
             >
           </li>
           <li class="pt-1 pb-1">
-            <a
+            <a href="categories"
               ><mat-icon mat-icon-button>category</mat-icon>Edit Categories &
               Milestones</a
             >
@@ -36,10 +70,14 @@
         </div>
       </details>
       <li class="pt-2 pb-2">
-        <a><mat-icon mat-icon-button>trending_up</mat-icon>Investments</a>
+        <a href="investments"
+          ><mat-icon mat-icon-button>trending_up</mat-icon>Investments</a
+        >
       </li>
       <li class="pt-2 pb-2">
-        <a><mat-icon mat-icon-button>donut_large</mat-icon>Reports</a>
+        <a href="reports"
+          ><mat-icon mat-icon-button>donut_large</mat-icon>Reports</a
+        >
       </li>
     </ul>
     <label

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { FxfNavbarComponent } from './fxf-navbar/fxf-navbar.component';
+import { FxfNavbarComponent } from '../components/fxf-navbar/fxf-navbar.component';
 
 @Component({
   selector: 'app-root',

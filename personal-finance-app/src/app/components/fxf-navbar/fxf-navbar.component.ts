@@ -11,11 +11,7 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './fxf-navbar.component.scss',
 })
 export class FxfNavbarComponent {
-  menuVisible: boolean = false;
   theme = 'dark';
-  OpenMenu() {
-    this.menuVisible = this.menuVisible ? false : true;
-  }
 
   toggleTheme() {
     this.theme = this.theme == 'dark' ? 'light' : 'dark';

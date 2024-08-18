@@ -1,17 +1,16 @@
 import { Routes } from '@angular/router';
-
-// import {HomeComponent} from './home/home.component';
-// import {UserComponent} from './user/user.component';
+import { FxfDashboardComponent } from './pages/fxf-dashboard/fxf-dashboard.component';
+import { FxfTransactionsComponent } from './pages/fxf-transactions/fxf-transactions.component';
 
 export const routes: Routes = [
-  //   {
-  //     path: '',
-  //     title: 'App Home Page',
-  //     component: HomeComponent,
-  //   },
-  //   {
-  //     path: 'user',
-  //     title: 'App User Page',
-  //     component: UserComponent,
-  //   },
+  {
+    path: 'transactions',
+    title: 'Transactions',
+    component: FxfTransactionsComponent,
+  },
+  {
+    path: 'dashboard',
+    title: 'Dashboard',
+    component: FxfDashboardComponent,
+  },
 ];

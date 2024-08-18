@@ -1,0 +1,39 @@
+@import "../../../styles.scss";
+:host {
+  display: block;
+  width: fit-content;
+  height: 100%;
+  .drawer {
+    display: block;
+    height: 100%;
+    width: fit-content;
+  }
+  .drawer-content {
+    display: flex;
+    flex-flow: column;
+    .drawer-button {
+      width: fit-content;
+    }
+    .cont-logo {
+      padding-left: 12px;
+
+      .mini-logo {
+        height: 32px;
+        width: 32px;
+      }
+    }
+  }
+  .menu-close {
+    width: fit-content;
+  }
+  .menu-open {
+    width: 25%;
+    @media (max-width: $mobile-breakpoint) {
+      width: fit-content;
+    }
+  }
+  .align-bottom {
+    position: absolute;
+    bottom: 0;
+  }
+}
