@@ -11,12 +11,24 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './fxf-navbar.component.scss',
 })
 export class FxfNavbarComponent {
+  title = 'FleXFin';
   theme = 'dark';
 
-  toggleTheme() {
-    this.theme = this.theme == 'dark' ? 'light' : 'dark';
+  // ngOnInit() {
+  //   document
+  //     .getElementById('data-theme')
+  //     ?.setAttribute('data-theme', localStorage.getItem('Theme')!);
+  // }
+
+  changeTheme() {
+    if (localStorage.getItem('Theme') == 'dark') {
+      localStorage.setItem('Theme', 'light');
+    } else {
+      localStorage.setItem('Theme', 'dark');
+    }
+    console.log(localStorage.getItem('Theme'));
     document
       .getElementById('data-theme')
-      ?.setAttribute('data-theme', this.theme);
+      ?.setAttribute('data-theme', localStorage.getItem('Theme')!);
   }
 }

@@ -5,3 +5,4 @@ import { AppComponent } from './app/main/app.component';
 bootstrapApplication(AppComponent, appConfig).catch((err) =>
   console.error(err)
 );
+localStorage.setItem('Theme', 'dark');

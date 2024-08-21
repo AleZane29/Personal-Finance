@@ -45,7 +45,9 @@
     ></label>
     <ul class="menu menu-open bg-base-200 text-xl font-medium min-h-full p-4">
       <li class="pt-4 pb-4 text-2xl">
-        <a><img src="fxf-logo-sq.png" class="h-9" /> FleXFin</a>
+        <a href="dashboard"
+          ><img src="fxf-logo-sq.png" class="h-9" /> FleXFin</a
+        >
       </li>
       <li class="pt-2 pb-2">
         <a href="dashboard"
@@ -81,14 +83,14 @@
       </li>
     </ul>
     <label
-      (change)="toggleTheme()"
       class="grid cursor-pointer place-items-center align-bottom p-4"
+      (change)="changeTheme()"
     >
       <input
         type="checkbox"
         value="synthwave"
         class="toggle theme-controller bg-base-content col-span-2 col-start-1 row-start-1"
-        checked="checked"
+        [checked]="theme == 'dark' ? 'checked' : ''"
       />
       <svg
         class="stroke-base-100 fill-base-100 col-start-1 row-start-1"

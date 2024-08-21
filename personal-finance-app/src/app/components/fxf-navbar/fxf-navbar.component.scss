@@ -8,6 +8,9 @@
     height: 100%;
     width: fit-content;
   }
+  .drawer-side {
+    z-index: 100;
+  }
   .drawer-content {
     display: flex;
     flex-flow: column;
