@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  width: fit-content;
+  height: fit-content;
+  .table-container {
+    box-shadow: 5px 5px 3px;
+    border-radius: 24px;
+    background-color: #1a3c50;
+    padding: 18px;
+  }
+  .table-title-container {
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    width: 100%;
+  }
+  .table {
+    border-radius: 15px;
+    height: fit-content;
+    width: fit-content;
+    padding: 24px;
+  }
+}

@@ -26,7 +26,6 @@ export class FxfNavbarComponent {
     } else {
       localStorage.setItem('Theme', 'dark');
     }
-    console.log(localStorage.getItem('Theme'));
     document
       .getElementById('data-theme')
       ?.setAttribute('data-theme', localStorage.getItem('Theme')!);
