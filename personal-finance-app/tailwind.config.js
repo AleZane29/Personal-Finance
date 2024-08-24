@@ -1,5 +1,3 @@
-const { light } = require("daisyui/src/theming/themes");
-
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: ["./src/**/*.{html,ts}", "./projects/**/*.{html,ts}"],
@@ -26,6 +24,19 @@ module.exports = {
       {
         dark: {
           ...require("daisyui/src/theming/themes")["dark"],
+          primary: "#3B81A9",
+          secondary: "#89C7EC",
+          ".table-zebra": {
+            "background-color": "#191E24",
+            tbody: {
+              "tr:nth-child(even)": {
+                "background-color": "#1D232A",
+              },
+              "tr:nth-child(odd)": {
+                "background-color": "#191E24",
+              },
+            },
+          },
           ".tr-odd": {
             "background-color": "#1a3c50",
           },

@@ -3,12 +3,18 @@
   width: fit-content;
   height: fit-content;
   .table-container {
-    box-shadow: 5px 5px 3px;
+    // box-shadow: 5px 5px 3px;
+
+    border-style: solid;
+    border-width: 1px;
+    border-color: gray;
     border-radius: 24px;
-    background-color: #1a3c50;
     padding: 18px;
   }
   .table-title-container {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 8px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     width: 100%;

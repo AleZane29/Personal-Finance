@@ -1,7 +1,17 @@
 :host {
-  display: grid;
+  display: flex;
   height: 100%;
   width: 100%;
-  justify-content: center;
+  /* flex-flow: column; */
+  flex-wrap: wrap;
+  /* gap: 5%; */
   align-items: center;
+  justify-content: space-evenly;
+  // justify-content: center;
+  align-items: center;
+  .table-container {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
 }
