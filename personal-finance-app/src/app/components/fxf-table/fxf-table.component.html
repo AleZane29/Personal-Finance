@@ -1,19 +1,20 @@
 <div class="table-container bg-base-200">
   <div class="table-title-container text-secondary font-medium">
     <p>{{ title }}</p>
+    <div class="btns-container">
+      <button mat-mini-fab>
+        <mat-icon class="btn btn-primary btn-xs">filter_alt</mat-icon></button
+      ><button mat-mini-fab>
+        <mat-icon class="btn btn-primary btn-xs">add</mat-icon>
+      </button>
+    </div>
   </div>
   <table class="table table-zebra">
-    <!-- head -->
     <tbody>
       <tr class="text-secondary font-medium">
         @for(item of headers; track item){
         <td>{{ item }}</td>
         }
-        <!-- <td>Id</td>
-        <td>Date</td>
-        <td>Amount</td>
-        <td>Description</td>
-        <td>Category</td> -->
       </tr>
       @for(row of content; track row){
       <tr>
@@ -22,27 +23,6 @@
         }
       </tr>
       }
-      <!-- <tr class="bg-base-100">
-        <td>0</td>
-        <td>10/08/2024</td>
-        <td>324€</td>
-        <td>Busta paga</td>
-        <td>Salary - Sia Informatica</td>
-      </tr>
-      <tr class="bg-base-200">
-        <td>1</td>
-        <td>10/07/2024</td>
-        <td>364€</td>
-        <td>Busta paga</td>
-        <td>Salary - Sia Informatica</td>
-      </tr>
-      <tr class="bg-base-100">
-        <td>2</td>
-        <td>07/06/2024</td>
-        <td>50€</td>
-        <td>Riaddebito spesa</td>
-        <td>Chargeback</td>
-      </tr> -->
     </tbody>
   </table>
 </div>

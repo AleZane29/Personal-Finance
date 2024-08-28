@@ -1,3 +1,8 @@
+::ng-deep {
+  .mat-icon {
+    display: flex;
+  }
+}
 :host {
   display: block;
   width: fit-content;
@@ -13,11 +18,15 @@
   }
   .table-title-container {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     padding-bottom: 8px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
     width: 100%;
+    .btns-container {
+      display: flex;
+      gap: 4px;
+    }
   }
   .table {
     border-radius: 15px;

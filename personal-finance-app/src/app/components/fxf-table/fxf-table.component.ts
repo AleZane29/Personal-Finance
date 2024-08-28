@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'fxf-table',
   standalone: true,
-  imports: [],
+  imports: [MatIconModule],
   templateUrl: './fxf-table.component.html',
   styleUrl: './fxf-table.component.scss',
 })

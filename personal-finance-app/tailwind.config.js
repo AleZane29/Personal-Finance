@@ -37,11 +37,19 @@ module.exports = {
               },
             },
           },
-          ".tr-odd": {
-            "background-color": "#1a3c50",
-          },
-          ".tr-even": {
-            "background-color": "#2d5e7a",
+        },
+        light: {
+          ...require("daisyui/src/theming/themes")["light"],
+          secondary: "#3B81A9",
+          ".table-zebra": {
+            tbody: {
+              "tr:nth-child(even)": {
+                "background-color": "#f2f2f2",
+              },
+              "tr:nth-child(odd)": {
+                "background-color": "white",
+              },
+            },
           },
         },
       },
