@@ -1,18 +1,28 @@
 <div class="table-container bg-base-200">
   <div class="table-title-container text-secondary font-medium">
-    <p>INCOME</p>
+    <p>{{ title }}</p>
   </div>
   <table class="table table-zebra">
     <!-- head -->
     <tbody>
       <tr class="text-secondary font-medium">
-        <td>Id</td>
+        @for(item of headers; track item){
+        <td>{{ item }}</td>
+        }
+        <!-- <td>Id</td>
         <td>Date</td>
         <td>Amount</td>
         <td>Description</td>
-        <td>Category</td>
+        <td>Category</td> -->
       </tr>
-      <tr class="bg-base-100">
+      @for(row of content; track row){
+      <tr>
+        @for(item of row; track item){
+        <td>{{ item }}</td>
+        }
+      </tr>
+      }
+      <!-- <tr class="bg-base-100">
         <td>0</td>
         <td>10/08/2024</td>
         <td>324€</td>
@@ -32,7 +42,7 @@
         <td>50€</td>
         <td>Riaddebito spesa</td>
         <td>Chargeback</td>
-      </tr>
+      </tr> -->
     </tbody>
   </table>
 </div>

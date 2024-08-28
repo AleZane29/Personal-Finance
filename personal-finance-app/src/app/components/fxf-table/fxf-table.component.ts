@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'fxf-table',
@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './fxf-table.component.html',
   styleUrl: './fxf-table.component.scss',
 })
-export class FxfTableComponent {}
+export class FxfTableComponent {
+  @Input() headers: string[] = [];
+  @Input() title: string = '';
+  @Input() content: any[][] = [];
+}
