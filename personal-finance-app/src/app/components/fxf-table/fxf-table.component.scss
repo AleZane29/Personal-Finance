@@ -1,15 +1,24 @@
+@import "../../../variables.scss";
+
 ::ng-deep {
   .mat-icon {
     display: flex;
+    width: 28px;
+    height: 28px;
+  }
+  .table {
+    font-size: medium;
+    position: static;
   }
 }
 :host {
   display: block;
-  width: fit-content;
+  width: calc(50% - 100px);
+  @media (max-width: $mobile-breakpoint) {
+    width: fit-content;
+  }
   height: fit-content;
   .table-container {
-    // box-shadow: 5px 5px 3px;
-
     border-style: solid;
     border-width: 1px;
     border-color: gray;
@@ -19,6 +28,7 @@
   .table-title-container {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     padding-bottom: 8px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -30,8 +40,8 @@
   }
   .table {
     border-radius: 15px;
-    height: fit-content;
-    width: fit-content;
+    height: 100%;
+    width: 100%;
     padding: 24px;
   }
 }
