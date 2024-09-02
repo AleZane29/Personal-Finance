@@ -17,10 +17,18 @@
         <td>{{ item }}</td>
         }
       </tr>
-      @if(content.length!=0){ @for(row of content; track row){
+      @if(content.length!=0){ @for(item of content; track item){
       <tr>
-        @for(item of row; track item){
-        <td>{{ item }}</td>
+        <td>{{ item.id }}</td>
+        <td>{{ item.date }}</td>
+        <td>{{ item.amount + item.currency }}</td>
+        <td>{{ item.description }}</td>
+        @if(item.subCategory!=null){
+
+        <td>{{ item.category + "-" + item.subCategory }}</td>
+        }@else{
+        <td>{{ item.category }}</td>
+
         }
       </tr>
       } }@else{

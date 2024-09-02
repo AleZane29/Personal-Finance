@@ -1,0 +1,42 @@
+{
+    "income": [
+        {
+            "id": 0,
+            "date": "10/08/2024",
+            "amount": 324,
+            "currency": "€",
+            "description": "Busta paga",
+            "category": "Salary",
+            "subCategory": "Sia Infomatica"
+        },
+        {
+            "id": 1,
+            "date": "10/09/2024",
+            "amount": 424,
+            "currency": "€",
+            "description": "Busta paga",
+            "category": "Salary",
+            "subCategory": "Sia Infomatica"
+        }
+    ],
+    "expense": [
+        {
+            "id": 0,
+            "date": "15/08/2024",
+            "amount": 24,
+            "currency": "€",
+            "description": "Regalo Nonna",
+            "category": "Gifts",
+            "subCategory": null
+        },
+        {
+            "id": 1,
+            "date": "10/09/2024",
+            "amount": 124,
+            "currency": "€",
+            "description": "Spesa Lidl",
+            "category": "Groceries",
+            "subCategory": "Foods"
+        }
+    ]
+}

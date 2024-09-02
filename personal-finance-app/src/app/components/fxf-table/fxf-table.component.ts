@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
+import { Transactions } from '../../interfaces/transactions';
 
 @Component({
   selector: 'fxf-table',
@@ -11,5 +12,5 @@ import { MatIconModule } from '@angular/material/icon';
 export class FxfTableComponent {
   @Input() headers: string[] = [];
   @Input() title: string = '';
-  @Input() content: any[][] = [];
+  @Input() content: Transactions[] = [];
 }
