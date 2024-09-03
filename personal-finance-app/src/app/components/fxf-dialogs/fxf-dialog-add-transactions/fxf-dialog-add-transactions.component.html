@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Delete file</h2>
+<mat-dialog-content>
+  Would you like to delete cat.jpeg?
+  <form class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Favorite food</mat-label>
+      <input matInput placeholder="Ex. Pizza" value="Sushi" />
+    </mat-form-field>
+
+    <mat-form-field floatLabel="always">
+      <mat-label>Amount</mat-label>
+      <input
+        matInput
+        type="number"
+        class="example-right-align"
+        placeholder="0"
+      />
+      <span matTextPrefix>€&nbsp;</span>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button mat-dialog-close>No</button>
+  <button mat-button mat-dialog-close>Ok</button>
+</mat-dialog-actions>
