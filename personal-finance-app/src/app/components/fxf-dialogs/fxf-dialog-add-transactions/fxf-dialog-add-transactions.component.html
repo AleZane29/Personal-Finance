@@ -1,25 +1,58 @@
-<h2 mat-dialog-title>Delete file</h2>
+<h2 mat-dialog-title>Insert transaction</h2>
 <mat-dialog-content>
-  Would you like to delete cat.jpeg?
   <form class="example-form">
-    <mat-form-field class="example-full-width">
-      <mat-label>Favorite food</mat-label>
-      <input matInput placeholder="Ex. Pizza" value="Sushi" />
+    <mat-form-field class="third-width">
+      <mat-label>Date</mat-label>
+      <input matInput [matDatepicker]="picker" />
+      <mat-datepicker-toggle
+        matIconSuffix
+        [for]="picker"
+      ></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
     </mat-form-field>
 
-    <mat-form-field floatLabel="always">
+    <mat-form-field class="third-width" floatLabel="always">
       <mat-label>Amount</mat-label>
       <input
         matInput
         type="number"
         class="example-right-align"
         placeholder="0"
+        min="0"
       />
-      <span matTextPrefix>€&nbsp;</span>
+    </mat-form-field>
+
+    <mat-form-field class="cur-width">
+      <mat-label>Currency</mat-label>
+      <mat-select id="currency" [(value)]="defCurrency" required>
+        <mat-option value="€">€ - Euro</mat-option>
+        <mat-option value="$">$ - USD</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="w-full">
+      <mat-label>Description</mat-label>
+      <input matInput type="text" typlaceholder="Ex. Paycheck" />
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-label>Category</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="half-width">
+      <mat-label>Sub Category</mat-label>
+      <mat-select>
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>
     </mat-form-field>
   </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button mat-button mat-dialog-close>No</button>
-  <button mat-button mat-dialog-close>Ok</button>
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close>Add</button>
 </mat-dialog-actions>

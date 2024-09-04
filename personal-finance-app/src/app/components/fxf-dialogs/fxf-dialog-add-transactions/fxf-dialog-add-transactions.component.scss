@@ -1,9 +1,23 @@
-.example-form {
-  min-width: 150px;
-  max-width: 500px;
-  width: 100%;
+::ng-deep {
+  .cdk-overlay-pane.mat-mdc-dialog-panel {
+    max-width: none;
+  }
 }
 
-.example-full-width {
+.example-form {
   width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 4%;
+}
+
+.half-width {
+  width: 48%;
+}
+.cur-width {
+  width: 24%;
+}
+.third-width {
+  width: 34%;
 }

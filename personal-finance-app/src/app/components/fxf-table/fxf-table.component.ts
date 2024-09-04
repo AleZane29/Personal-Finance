@@ -20,7 +20,7 @@ export class FxfTableComponent {
 
   openDialog() {
     const dialogRef = this.dialog.open(FxfDialogAddTransactionsComponent, {
-      width: '300px',
+      width: '800px',
     });
 
     dialogRef.afterClosed().subscribe((result) => {
