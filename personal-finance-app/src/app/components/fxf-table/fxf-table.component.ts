@@ -14,6 +14,7 @@ import { FxfDialogAddTransactionsComponent } from '../fxf-dialogs/fxf-dialog-add
 export class FxfTableComponent {
   @Input() headers: string[] = [];
   @Input() title: string = '';
+  @Input() type: string = '';
   @Input() content: Transactions[] = [];
 
   readonly dialog = inject(MatDialog);
@@ -21,9 +22,11 @@ export class FxfTableComponent {
   openDialog() {
     const dialogRef = this.dialog.open(FxfDialogAddTransactionsComponent, {
       width: '800px',
+      data: { type: this.type },
     });
 
     dialogRef.afterClosed().subscribe((result) => {
+      //AGGIUNGERE DATI IN JSON
       console.log(`Dialog result: ${result}`);
     });
   }

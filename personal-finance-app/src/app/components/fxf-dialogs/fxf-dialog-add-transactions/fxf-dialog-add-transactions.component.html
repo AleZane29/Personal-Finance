@@ -24,7 +24,7 @@
 
     <mat-form-field class="cur-width">
       <mat-label>Currency</mat-label>
-      <mat-select id="currency" [(value)]="defCurrency" required>
+      <mat-select [(value)]="defaultCurrency" required>
         <mat-option value="€">€ - Euro</mat-option>
         <mat-option value="$">$ - USD</mat-option>
       </mat-select>
@@ -37,17 +37,26 @@
 
     <mat-form-field class="half-width">
       <mat-label>Category</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+      <mat-select [(value)]="categoryValue" required>
+        @if(data.type=="Inc"){ @for (item of catIncome; track item) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        } }@else{ @for (item of catExpense; track item) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        } }
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="half-width">
       <mat-label>Sub Category</mat-label>
-      <mat-select>
-        <mat-option value="one">First option</mat-option>
-        <mat-option value="two">Second option</mat-option>
+      <mat-select [disabled]="categoryValue == null">
+        <mat-option [value]="null">--</mat-option>
+        @if(data.type=="Inc" && categoryValue!=null){ @for (item of
+        catIncome[categoryValue].subCategories; track item) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        } }@if(data.type=="Exp" && categoryValue!=null){ @for (item of
+        catExpense[categoryValue].subCategories; track item) {
+        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        } }
       </mat-select>
     </mat-form-field>
   </form>

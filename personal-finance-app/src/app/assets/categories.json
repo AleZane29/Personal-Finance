@@ -1,0 +1,133 @@
+{
+    "incomeCategories": [
+        {
+            "id": 0,
+            "name": "Paycheck",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "SiaInformatica"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Gift",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Birthday"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Chargeback",
+            "subCategories": []
+        },
+        {
+            "id": 3,
+            "name": "Other",
+            "subCategories": []
+        }
+    ],
+    "expenseCategories": [
+        {
+            "id": 0,
+            "name": "Shopping",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Grocery"
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "name": "Gift",
+            "subCategories": []
+        },
+        {
+            "id": 2,
+            "name": "Personal care",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Barber"
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Rent",
+            "subCategories": []
+        },
+        {
+            "id": 4,
+            "name": "Travel",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Plane"
+                },
+                {
+                    "id": 1,
+                    "name": "Hotel"
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Entertainment",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Cinema"
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Transport",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Bus subscription"
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Bank charges",
+            "subCategories": []
+        },
+        {
+            "id": 8,
+            "name": "Payments for others",
+            "subCategories": []
+        },
+        {
+            "id": 9,
+            "name": "Car",
+            "subCategories": [
+                {
+                    "id": 0,
+                    "name": "Fuel"
+                },
+                {
+                    "id": 1,
+                    "name": "Car tax"
+                },
+                {
+                    "id": 2,
+                    "name": "Insurance"
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "name": "Other",
+            "subCategories": []
+        }
+    ]
+}
