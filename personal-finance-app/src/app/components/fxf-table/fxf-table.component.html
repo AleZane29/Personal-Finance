@@ -3,20 +3,24 @@
     <p>{{ title }}</p>
     <div class="btns-container">
       <button mat-mini-fab>
-        <mat-icon class="btn btn-primary btn-xs">filter_alt</mat-icon>
+        <mat-icon class="btn btn-primary btn-xs table-btns"
+          >filter_alt</mat-icon
+        >
       </button>
       <button mat-mini-fab (click)="openDialog()">
-        <mat-icon class="btn btn-primary btn-xs">add</mat-icon>
+        <mat-icon class="btn btn-primary btn-xs table-btns">add</mat-icon>
       </button>
     </div>
   </div>
   <table class="table table-zebra">
-    <tbody>
+    <thead>
       <tr class="text-secondary">
         @for(item of headers; track item){
         <td>{{ item }}</td>
         }
       </tr>
+    </thead>
+    <tbody class="scrollable">
       @if(content.length!=0){ @for(item of content; track item){
       <tr>
         <td>{{ item.id }}</td>

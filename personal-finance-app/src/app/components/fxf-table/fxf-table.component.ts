@@ -26,8 +26,9 @@ export class FxfTableComponent {
     });
 
     dialogRef.afterClosed().subscribe((result) => {
-      //AGGIUNGERE DATI IN JSON
-      console.log(`Dialog result: ${result}`);
+      if (result != '' && result != undefined) {
+        this.content.push(result);
+      }
     });
   }
 }

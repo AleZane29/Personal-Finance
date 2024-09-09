@@ -1,14 +1,15 @@
 @import "../../../variables.scss";
 
 ::ng-deep {
-  .mat-icon {
-    display: flex;
-    width: 28px;
-    height: 28px;
-  }
   .table {
     font-size: medium;
     position: static;
+  }
+
+  .table :where(thead, tfoot) {
+    font-size: 16px;
+    line-height: 20px;
+    font-weight: 400;
   }
 
   .mat-typography p {
@@ -36,10 +37,17 @@
     padding-bottom: 8px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
+    border-bottom-color: gray;
+
     width: 100%;
     .btns-container {
       display: flex;
       gap: 4px;
+      .table-btns {
+        display: flex;
+        width: 28px;
+        height: 28px;
+      }
     }
   }
   .table {
@@ -47,5 +55,9 @@
     height: 100%;
     width: 100%;
     padding: 24px;
+  }
+  .scrollable {
+    max-height: 500px;
+    overflow-y: scroll;
   }
 }

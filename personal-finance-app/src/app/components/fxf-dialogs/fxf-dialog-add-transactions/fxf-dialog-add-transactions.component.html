@@ -1,9 +1,14 @@
 <h2 mat-dialog-title>Insert transaction</h2>
-<mat-dialog-content>
-  <form class="example-form">
+<form [formGroup]="transactionForm" (ngSubmit)="formSubmit()">
+  <mat-dialog-content class="example-form">
     <mat-form-field class="third-width">
       <mat-label>Date</mat-label>
-      <input matInput [matDatepicker]="picker" />
+      <input
+        matInput
+        [matDatepicker]="picker"
+        formControlName="date"
+        required
+      />
       <mat-datepicker-toggle
         matIconSuffix
         [for]="picker"
@@ -19,12 +24,18 @@
         class="example-right-align"
         placeholder="0"
         min="0"
+        formControlName="amount"
+        required
       />
     </mat-form-field>
 
     <mat-form-field class="cur-width">
       <mat-label>Currency</mat-label>
-      <mat-select [(value)]="defaultCurrency" required>
+      <mat-select
+        [(value)]="defaultCurrency"
+        formControlName="currency"
+        required
+      >
         <mat-option value="€">€ - Euro</mat-option>
         <mat-option value="$">$ - USD</mat-option>
       </mat-select>
@@ -32,36 +43,44 @@
 
     <mat-form-field class="w-full">
       <mat-label>Description</mat-label>
-      <input matInput type="text" typlaceholder="Ex. Paycheck" />
+      <input
+        matInput
+        type="text"
+        typlaceholder="Ex. Paycheck"
+        formControlName="description"
+      />
     </mat-form-field>
 
     <mat-form-field class="half-width">
       <mat-label>Category</mat-label>
-      <mat-select [(value)]="categoryValue" required>
+      <mat-select formControlName="category" required>
+        <mat-option [value]="null">--</mat-option>
         @if(data.type=="Inc"){ @for (item of catIncome; track item) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        <mat-option [value]="item.name">{{ item.name }}</mat-option>
         } }@else{ @for (item of catExpense; track item) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        <mat-option [value]="item.name">{{ item.name }}</mat-option>
         } }
       </mat-select>
     </mat-form-field>
 
     <mat-form-field class="half-width">
       <mat-label>Sub Category</mat-label>
-      <mat-select [disabled]="categoryValue == null">
+      <mat-select formControlName="subCategory">
         <mat-option [value]="null">--</mat-option>
-        @if(data.type=="Inc" && categoryValue!=null){ @for (item of
-        catIncome[categoryValue].subCategories; track item) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option>
-        } }@if(data.type=="Exp" && categoryValue!=null){ @for (item of
-        catExpense[categoryValue].subCategories; track item) {
-        <mat-option [value]="item.id">{{ item.name }}</mat-option>
+        @if(data.type=="Inc" && this.transactionForm.value.category!=null){ @for
+        (item of filterSubCategories(); track item) {
+        <mat-option [value]="item.name">{{ item.name }}</mat-option>
+        } }@if(data.type=="Exp" && this.transactionForm.value.category!=null){
+        @for (item of filterSubCategories(); track item) {
+        <mat-option [value]="item.name">{{ item.name }}</mat-option>
         } }
       </mat-select>
     </mat-form-field>
-  </form>
-</mat-dialog-content>
-<mat-dialog-actions>
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Add</button>
-</mat-dialog-actions>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button mat-button type="submit" [disabled]="!transactionForm.valid">
+      Done
+    </button>
+  </mat-dialog-actions>
+</form>

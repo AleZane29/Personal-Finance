@@ -29,10 +29,10 @@ module.exports = {
           ".table-zebra": {
             "background-color": "#191E24",
             tbody: {
-              "tr:nth-child(even)": {
+              "tr:nth-child(odd)": {
                 "background-color": "#1D232A",
               },
-              "tr:nth-child(odd)": {
+              "tr:nth-child(even)": {
                 "background-color": "#191E24",
               },
             },
@@ -42,6 +42,7 @@ module.exports = {
           ...require("daisyui/src/theming/themes")["light"],
           secondary: "#3B81A9",
           ".table-zebra": {
+            "background-color": "#f2f2f2",
             tbody: {
               "tr:nth-child(even)": {
                 "background-color": "#f2f2f2",

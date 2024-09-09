@@ -4,6 +4,11 @@ import { FxfTransactionsComponent } from './pages/fxf-transactions/fxf-transacti
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: 'dashboard',
+    pathMatch: 'full',
+  },
+  {
     path: 'transactions',
     title: 'Transactions',
     component: FxfTransactionsComponent,
