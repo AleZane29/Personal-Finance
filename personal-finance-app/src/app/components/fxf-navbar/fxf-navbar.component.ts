@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { RouterOutlet } from '@angular/router';
+import { LocalStore } from '../../services/localStore.service';
 
 @Component({
   selector: 'fxf-navbar',
@@ -13,21 +14,25 @@ import { RouterOutlet } from '@angular/router';
 export class FxfNavbarComponent {
   title = 'FleXFin';
   theme = 'dark';
-
-  // ngOnInit() {
-  //   document
-  //     .getElementById('data-theme')
-  //     ?.setAttribute('data-theme', localStorage.getItem('Theme')!);
-  // }
+  constructor(private localStore: LocalStore) {}
+  ngOnInit() {
+    try {
+      if (!this.localStore.getData('Theme')) {
+        this.localStore.saveData('Theme', 'dark');
+      }
+      this.theme = this.localStore.getData('Theme');
+    } catch (error) {}
+  }
 
   changeTheme() {
-    if (localStorage.getItem('Theme') == 'dark') {
-      localStorage.setItem('Theme', 'light');
+    if (this.localStore.getData('Theme') == 'dark') {
+      this.localStore.saveData('Theme', 'light');
     } else {
-      localStorage.setItem('Theme', 'dark');
+      this.localStore.saveData('Theme', 'dark');
     }
+    this.theme = this.localStore.getData('Theme');
     document
       .getElementById('data-theme')
-      ?.setAttribute('data-theme', localStorage.getItem('Theme')!);
+      ?.setAttribute('data-theme', this.localStore.getData('Theme'));
   }
 }
