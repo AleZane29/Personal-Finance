@@ -40,14 +40,14 @@
     border-bottom-color: gray;
 
     width: 100%;
-    .btns-container {
+  }
+  .btns-container {
+    display: flex;
+    gap: 4px;
+    .table-btns {
       display: flex;
-      gap: 4px;
-      .table-btns {
-        display: flex;
-        width: 28px;
-        height: 28px;
-      }
+      width: 28px;
+      height: 28px;
     }
   }
   .table {
@@ -57,7 +57,10 @@
     padding: 24px;
   }
   .scrollable {
-    max-height: 500px;
-    overflow-y: scroll;
+    width: 100%;
+    display: block;
+    padding: 0;
+    max-height: 600px;
+    overflow-y: auto;
   }
 }

@@ -29,10 +29,10 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
-import categories from '../../../assets/categories.json';
-import transactions from '../../../assets/transactions.json';
+import categories from '../../../../../data/categories.json';
+import transactions from '../../../../../data/transactions.json';
 import { Categories, SubCategories } from '../../../interfaces/categories';
-import { Transactions } from '../../../interfaces/transactions';
+import { Transaction } from '../../../interfaces/transactions';
 @Component({
   selector: 'app-fxf-dialog-add-transactions',
   standalone: true,
@@ -96,17 +96,25 @@ export class FxfDialogAddTransactionsComponent {
   formSubmit() {
     this.transactionForm.value.date =
       this.transactionForm.value.date.toLocaleDateString();
-    let transaction: Transactions = JSON.parse(
+    let transaction: Transaction = JSON.parse(
       JSON.stringify(this.transactionForm.value)
     );
     let maxId: number = 0;
-    transactions.income.forEach((x) => {
-      if (x.id >= maxId) {
-        maxId = x.id + 1;
-      }
-    });
+    if (this.data.type == 'Inc') {
+      transactions.income.forEach((x) => {
+        if (x.id >= maxId) {
+          maxId = x.id + 1;
+        }
+      });
+    }
+    if (this.data.type == 'Exp') {
+      transactions.expense.forEach((x) => {
+        if (x.id >= maxId) {
+          maxId = x.id + 1;
+        }
+      });
+    }
     transaction.id = maxId;
-    // writeJsonFile('../../../assets/transactions.json', { transaction });
     this.dialogRef.close(transaction);
   }
 }

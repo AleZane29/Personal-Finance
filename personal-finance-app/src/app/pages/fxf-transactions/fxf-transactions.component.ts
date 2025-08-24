@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
-// import { ConfigService } from '../../app.config';
-import transactions from '../../assets/transactions.json';
+import { Component, OnInit } from '@angular/core';
 import { FxfTableComponent } from '../../components/fxf-table/fxf-table.component';
-import { Transactions } from '../../interfaces/transactions';
+import { Transaction } from '../../interfaces/transactions';
+import { TransactionsService } from '../../services/transactions.service';
+
 @Component({
   selector: 'app-fxf-transactions',
   standalone: true,
@@ -10,21 +10,25 @@ import { Transactions } from '../../interfaces/transactions';
   templateUrl: './fxf-transactions.component.html',
   styleUrl: './fxf-transactions.component.scss',
 })
-// @Injectable({ providedIn: 'root' })
-export class FxfTransactionsComponent {
-  // ngOnInit() {
-  //   var XMLHttpRequest = require('xhr2');
-  //   var xhr = new XMLHttpRequest();
-  //   var requestUrl = 'https://api.restful-api.dev/objects/4';
-  //   xhr.open('GET', requestUrl, true);
-  //   xhr.onload = function () {
-  //     console.log(xhr.responseText);
-  //   };
-  //   xhr.send();
-  // }
+export class FxfTransactionsComponent implements OnInit {
+  constructor(private service: TransactionsService) {}
   headers: string[] = ['Id', 'Date', 'Amount', 'Description', 'Category'];
-  dataIncome: Transactions[] = transactions.income;
-  dataExpense: Transactions[] = transactions.expense;
+  dataIncome: Transaction[] = [];
+  dataExpense: Transaction[] = [];
 
-  addIcomes() {}
+  ngOnInit() {
+    this.service.GetAllIncome().subscribe({
+      next: (data) => {
+        this.dataIncome = data;
+      },
+      error: (err) => console.error('Errore:', err),
+    });
+
+    this.service.GetAllExpense().subscribe({
+      next: (data) => {
+        this.dataExpense = data;
+      },
+      error: (err) => console.error('Errore:', err),
+    });
+  }
 }
