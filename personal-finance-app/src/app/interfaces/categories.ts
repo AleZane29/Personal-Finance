@@ -1,10 +1,10 @@
-export interface SubCategories {
+export interface SubCategory {
   id: number;
   name: string;
 }
 
-export interface Categories {
+export interface Category {
   id: number;
   name: string;
-  subCategories: SubCategories[];
+  subCategories: SubCategory[];
 }

@@ -1,51 +1,51 @@
 {
   "income": [
     {
-      "id": 0,
-      "date": "10/08/2024",
+      "date": "2024-08-09",
       "amount": 324,
       "currency": "€",
       "description": "Busta paga",
-      "category": "Salary",
-      "subCategory": "Sia Infomatica"
+      "category": "Paycheck",
+      "subCategory": "Sia Infomatica",
+      "id": 0
     },
     {
       "id": 1,
-      "date": "10/09/2024",
+      "date": "2024-09-10",
       "amount": 424,
       "currency": "€",
       "description": "Busta paga",
-      "category": "Salary",
+      "category": "Paycheck",
       "subCategory": "Sia Infomatica"
     },
     {
-      "date": "08/08/2025",
-      "amount": 5,
-      "currency": "$",
-      "description": null,
-      "category": "Gift",
+      "date": "2025-08-10",
+      "amount": 3,
+      "currency": "€",
+      "description": "ciao",
+      "category": "Chargeback",
       "subCategory": null,
-      "id": 2
+      "id": 3
     }
   ],
   "expense": [
     {
       "id": 0,
-      "date": "15/08/2024",
+      "date": "2025-08-06",
       "amount": 24,
       "currency": "€",
       "description": "Regalo Nonna",
-      "category": "Gifts",
+      "category": "Gift",
       "subCategory": null
     },
     {
       "id": 1,
-      "date": "10/09/2024",
+      "date": "2024-12-06",
       "amount": 124,
       "currency": "€",
       "description": "Spesa Lidl",
-      "category": "Groceries",
-      "subCategory": "Foods"
+      "category": "Shopping",
+      "subCategory": "Grocery"
     }
   ]
 }

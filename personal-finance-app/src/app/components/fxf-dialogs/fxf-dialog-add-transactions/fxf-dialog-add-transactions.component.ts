@@ -31,7 +31,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import categories from '../../../../../data/categories.json';
 import transactions from '../../../../../data/transactions.json';
-import { Categories, SubCategories } from '../../../interfaces/categories';
+import { Category, SubCategory } from '../../../interfaces/categories';
 import { Transaction } from '../../../interfaces/transactions';
 @Component({
   selector: 'app-fxf-dialog-add-transactions',
@@ -60,23 +60,36 @@ import { Transaction } from '../../../interfaces/transactions';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class FxfDialogAddTransactionsComponent {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: { type: string }) {}
+  constructor(
+    @Inject(MAT_DIALOG_DATA)
+    public data: {
+      type: string;
+      transaction: Transaction | undefined;
+      action: string;
+    }
+  ) {}
   readonly dialogRef = inject(MatDialogRef<FxfDialogAddTransactionsComponent>);
   defaultCurrency = '€';
-  catIncome: Categories[] = categories.incomeCategories;
-  catExpense: Categories[] = categories.expenseCategories;
+  catIncome: Category[] = categories.incomeCategories;
+  catExpense: Category[] = categories.expenseCategories;
 
   transactionForm = new FormGroup({
-    date: new FormControl(),
-    amount: new FormControl(),
-    currency: new FormControl(),
-    description: new FormControl(),
-    category: new FormControl(),
-    subCategory: new FormControl(),
+    date: new FormControl(
+      new Date(
+        this.data.transaction?.date != undefined
+          ? this.data.transaction?.date!
+          : ''
+      )
+    ),
+    amount: new FormControl(this.data.transaction?.amount),
+    currency: new FormControl(this.data.transaction?.currency),
+    description: new FormControl(this.data.transaction?.description),
+    category: new FormControl(this.data.transaction?.category),
+    subCategory: new FormControl(this.data.transaction?.subCategory),
   });
 
-  filterSubCategories(): SubCategories[] {
-    let res: SubCategories[] = [];
+  filterSubCategories(): SubCategory[] {
+    let res: SubCategory[] = [];
     if (this.data.type == 'Inc') {
       this.catIncome.forEach((x) => {
         if (x.name == this.transactionForm.value.category) {
@@ -94,27 +107,31 @@ export class FxfDialogAddTransactionsComponent {
   }
 
   formSubmit() {
-    this.transactionForm.value.date =
-      this.transactionForm.value.date.toLocaleDateString();
     let transaction: Transaction = JSON.parse(
       JSON.stringify(this.transactionForm.value)
     );
-    let maxId: number = 0;
-    if (this.data.type == 'Inc') {
-      transactions.income.forEach((x) => {
-        if (x.id >= maxId) {
-          maxId = x.id + 1;
-        }
-      });
+    if (this.data.action == 'create') {
+      let maxId: number = 0;
+      if (this.data.type == 'Inc') {
+        transactions.income.forEach((x) => {
+          if (x.id >= maxId) {
+            maxId = x.id + 1;
+          }
+        });
+      }
+      if (this.data.type == 'Exp') {
+        transactions.expense.forEach((x) => {
+          if (x.id >= maxId) {
+            maxId = x.id + 1;
+          }
+        });
+      }
+      transaction.id = maxId;
+    } else {
+      transaction.id = this.data.transaction?.id!;
     }
-    if (this.data.type == 'Exp') {
-      transactions.expense.forEach((x) => {
-        if (x.id >= maxId) {
-          maxId = x.id + 1;
-        }
-      });
-    }
-    transaction.id = maxId;
+    transaction.date =
+      this.transactionForm.value.date!.toLocaleDateString('en-CA');
     this.dialogRef.close(transaction);
   }
 }

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Categories } from '../interfaces/categories';
-import { Transaction } from '../interfaces/transactions';
+import { Category } from '../interfaces/categories';
 
 @Injectable({
   providedIn: 'root',
@@ -11,41 +10,12 @@ export class LocalStore {
   public saveData(key: string, value: string) {
     localStorage.setItem(key, value);
   }
-  //#region Transactions
-  public saveTransInc(value: Transaction[]) {
-    localStorage.setItem('TransactionsIncome', JSON.stringify(value));
-  }
-  public saveTransExp(value: Transaction[]) {
-    localStorage.setItem('TransactionsExpense', JSON.stringify(value));
-  }
-
-  public getTransInc(): Transaction[] {
-    let data: string = '';
-    try {
-      data = localStorage.getItem('TransactionsIncome') || '';
-    } catch (error) {}
-    if (data == '') {
-      return [];
-    }
-    return JSON.parse(data);
-  }
-  public getTransExp(): Transaction[] {
-    let data: string = '';
-    try {
-      data = localStorage.getItem('TransactionsExpense') || '';
-    } catch (error) {}
-    if (data == '') {
-      return [];
-    }
-    return JSON.parse(data);
-  }
-  //#endregion
   //#region Categories
-  public saveCategories(value: Categories[]) {
+  public saveCategories(value: Category[]) {
     localStorage.setItem('Categories', JSON.stringify(value));
   }
 
-  public getCategories(): Categories[] {
+  public getCategories(): Category[] {
     let data: string = '';
     try {
       data = localStorage.getItem('Categories') || '';
