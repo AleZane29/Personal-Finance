@@ -8,7 +8,7 @@
 $personal-finance-app-theme: mat.define-theme(
   (
     color: (
-      theme-type: light,
+      theme-type: dark,
       primary: mat.$azure-palette,
       tertiary: mat.$blue-palette,
     ),
@@ -20,15 +20,6 @@ $personal-finance-app-theme: mat.define-theme(
 
 :root {
   @include mat.all-component-themes($personal-finance-app-theme);
-}
-
-html,
-body {
-  height: 100%;
-}
-body {
-  margin: 0;
-  font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
 html,

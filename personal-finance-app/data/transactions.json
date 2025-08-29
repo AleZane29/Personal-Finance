@@ -3,7 +3,7 @@
     {
       "date": "2024-08-09",
       "amount": 324,
-      "currency": "€",
+      "currency": "$",
       "description": "Busta paga",
       "category": "Paycheck",
       "subCategory": "Sia Infomatica",
@@ -26,6 +26,15 @@
       "category": "Chargeback",
       "subCategory": null,
       "id": 3
+    },
+    {
+      "date": "2025-08-14",
+      "amount": 123,
+      "currency": "€",
+      "description": "re",
+      "category": "Gift",
+      "subCategory": "Birthday",
+      "id": 4
     }
   ],
   "expense": [
