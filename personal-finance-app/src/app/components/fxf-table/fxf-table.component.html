@@ -15,7 +15,7 @@
   <div class="scrollable">
     <table class="table table-zebra">
       <thead>
-        <tr class="text-secondary">
+        <tr class="text-secondary table-headers bg-base-200">
           @for(item of headers; track item){
           <td>{{ item }}</td>
           }
@@ -26,7 +26,7 @@
         <tr>
           <td>{{ item.id }}</td>
           <td>{{ item.date | date : "dd/MM/yyyy" }}</td>
-          <td>{{ item.amount + item.currency }}</td>
+          <td>{{ item.amount + item.currency.split("-")[0] }}</td>
           <td>{{ item.description }}</td>
           @if(item.subCategory!=null){
 

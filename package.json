@@ -4,6 +4,7 @@
     "@ngrx/effects": "^20.0.0",
     "@ngrx/store": "^20.0.0",
     "@ngrx/store-devtools": "^20.0.0",
+    "chartjs-plugin-datalabels": "^2.2.0",
     "ngx-toastr": "^19.0.0"
   }
 }

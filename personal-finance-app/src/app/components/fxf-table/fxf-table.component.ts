@@ -62,17 +62,19 @@ export class FxfTableComponent {
       if (result == 'Confirm') {
         if (this.type == 'Inc') {
           this.service.DeleteIncome(itemId).subscribe({
-            next: (res) => {},
             error: (err) => console.error('Errore durante la creazione:', err),
           });
         } else {
           this.service.DeleteExpense(itemId).subscribe({
-            next: (res) => {},
             error: (err) => console.error('Errore durante la creazione:', err),
           });
         }
       }
     });
+
+    this.content.sort(
+      (a, b) => new Date(a.date).valueOf() - new Date(b.date).valueOf()
+    );
   }
 
   openUpdateDialog(tran: Transaction) {

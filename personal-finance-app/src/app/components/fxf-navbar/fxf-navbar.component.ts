@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { RouterOutlet } from '@angular/router';
 import { LocalStore } from '../../services/localStore.service';
 
 @Component({
   selector: 'fxf-navbar',
   standalone: true,
-  imports: [RouterOutlet, MatIconModule, MatSlideToggleModule],
+  imports: [MatIconModule, MatSlideToggleModule],
   templateUrl: './fxf-navbar.component.html',
   styleUrl: './fxf-navbar.component.scss',
 })

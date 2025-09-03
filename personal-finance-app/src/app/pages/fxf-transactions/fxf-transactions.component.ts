@@ -12,7 +12,7 @@ import { TransactionsService } from '../../services/transactions.service';
 })
 export class FxfTransactionsComponent implements OnInit {
   constructor(private service: TransactionsService) {}
-  headers: string[] = ['Id', 'Date', 'Amount', 'Description', 'Category'];
+  headers: string[] = ['Id', 'Date', 'Amount', 'Description', 'Category', ''];
   dataIncome: Transaction[] = [];
   dataExpense: Transaction[] = [];
 

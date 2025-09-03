@@ -52,4 +52,40 @@ export class TransactionsService {
   DeleteExpense(empId: number) {
     return this.http.delete(this.apiUrlExpense + '/' + empId);
   }
+
+  async convert(to: string, amounts: Transaction[]): Promise<number[]> {
+    const resp = await fetch(
+      `https://api.frankfurter.dev/v1/latest?base=${to}`
+    );
+    const data = await resp.json();
+    const convertedAmounts: number[] = [];
+    amounts.forEach((a) => {
+      if (a.currency.split('-')[1] != to) {
+        convertedAmounts.push(
+          parseFloat(
+            (a.amount / data.rates[a.currency.split('-')[1]]).toFixed(2)
+          )
+        );
+      } else {
+        convertedAmounts.push(a.amount);
+      }
+    });
+    return convertedAmounts;
+  }
+
+  async multipleConvert(
+    from: string,
+    to: string,
+    amounts: number[]
+  ): Promise<number[]> {
+    const resp = await fetch(
+      `https://api.frankfurter.dev/v1/latest?base=${from}&symbols=${to}`
+    );
+    const data = await resp.json();
+    const convertedAmounts: number[] = [];
+    amounts.forEach((a) => {
+      convertedAmounts.push(parseFloat((a * data.rates[to]).toFixed(2)));
+    });
+    return convertedAmounts;
+  }
 }
